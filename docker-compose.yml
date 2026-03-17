@@ -1,0 +1,46 @@
+# docker-compose.yml
+# Lance l'app DigitalBank + Cypress dans des conteneurs isolés
+
+version: '3.8'
+
+services:
+
+  # ── Conteneur 1 : L'application DigitalBank ──────────────────────────────
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.app
+    container_name: digitalbank-app
+    ports:
+      - "3000:80"         # Accessible sur http://localhost:3000
+    networks:
+      - digitalbank-net
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:80"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  # ── Conteneur 2 : Cypress (tests E2E) ────────────────────────────────────
+  cypress:
+    image: cypress/included:13.10.0   # Image Cypress officielle
+    container_name: digitalbank-cypress
+    depends_on:
+      app:
+        condition: service_healthy    # Attend que l'app soit prête
+    environment:
+      - CYPRESS_BASE_URL=http://app:80  # URL interne entre conteneurs
+    volumes:
+      - ./cypress:/e2e/cypress          # Synchronise vos scripts
+      - ./cypress.config.js:/e2e/cypress.config.js
+      - ./cypress-results:/e2e/cypress/results    # Rapports en sortie
+      - ./cypress-screenshots:/e2e/cypress/screenshots
+      - ./cypress-videos:/e2e/cypress/videos
+    working_dir: /e2e
+    networks:
+      - digitalbank-net
+    command: cypress run --browser chrome
+
+networks:
+  digitalbank-net:
+    driver: bridge
