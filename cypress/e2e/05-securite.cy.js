@@ -51,10 +51,12 @@ describe('🔒 Sécurité', () => {
   })
 
   it('TC-SEC-006 : Activation de la 2FA', () => {
-    cy.get('[data-testid="toggle-2fa"]').then(($toggle) => {
-      if (!$toggle.is(':checked')) {
-        cy.wrap($toggle).click()
-        cy.get('[data-testid="security-success"]').should('contain.text', 'activée')
+  cy.get('[data-testid="toggle-2fa"]').then(($toggle) => {
+    if (!$toggle.is(':checked')) {
+      // force: true car le checkbox est caché par CSS (toggle switch)
+      cy.wrap($toggle).click({ force: true })
+      cy.get('[data-testid="security-success"]')
+        .should('contain.text', 'activée')
       }
     })
   })
