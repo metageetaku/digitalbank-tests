@@ -1,4 +1,4 @@
-describe('💸 Virements Bancaires', () => {
+describe('Virements Bancaires', () => {
 
   beforeEach(() => {
     cy.visit('/')

@@ -1,4 +1,4 @@
-describe('📄 Paiement de Factures', () => {
+describe('Paiement de Factures', () => {
 
   beforeEach(() => {
     cy.visit('/')

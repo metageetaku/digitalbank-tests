@@ -2,7 +2,7 @@
 // Smoke test : vérifie que l'application répond correctement
 // Exécuté avant chaque déploiement 1
 
-describe('🔥 Smoke Tests — DigitalBank', () => {
+describe('Smoke Tests — DigitalBank', () => {
 
   it('La page de login se charge correctement', () => {
     cy.visit('/');

@@ -1,4 +1,4 @@
-describe('🔐 Authentification', () => {
+describe('Authentification', () => {
 
   let users
 

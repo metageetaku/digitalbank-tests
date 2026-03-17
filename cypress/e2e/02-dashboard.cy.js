@@ -1,4 +1,4 @@
-describe('🏦 Dashboard — Comptes & Transactions', () => {
+describe('Dashboard — Comptes & Transactions', () => {
 
   beforeEach(() => {
     cy.visit('/')
