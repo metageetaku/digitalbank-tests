@@ -10,7 +10,7 @@ describe('💸 Virements Bancaires', () => {
 
   it('TC-VIR-001 : Virement interne réussi', () => {
     cy.get('[data-testid="btn-transfer-internal"]').click()
-    cy.get('[data-testid="select-to-account"]').select(0)
+    cy.get('[data-testid="select-to-account"]').select(1) 
     cy.get('[data-testid="input-amount"]').type('100')
     cy.get('[data-testid="input-description"]').type('Test virement')
     cy.get('[data-testid="btn-submit-transfer"]').click()
