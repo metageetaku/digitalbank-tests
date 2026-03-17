@@ -1,0 +1,17 @@
+{
+  "name": "digitalbank-tests",
+  "version": "1.0.0",
+  "description": "Automatisation des tests JEFF Bank - Cypress + Docker",
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "cy:smoke": "cypress run --spec cypress/e2e/00-smoke.cy.js",
+    "cy:all": "cypress run --spec cypress/e2e/**/*.cy.js",
+    "docker:app": "docker compose up app",
+    "docker:test": "docker compose up --abort-on-container-exit",
+    "docker:down": "docker compose down -v"
+  },
+  "devDependencies": {
+    "cypress": "^13.10.0"
+  }
+}
