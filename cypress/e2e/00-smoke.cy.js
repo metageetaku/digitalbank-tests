@@ -1,6 +1,6 @@
 // cypress/e2e/smoke.cy.js
 // Smoke test : vérifie que l'application répond correctement
-// Exécuté avant chaque déploiement
+// Exécuté avant chaque déploiement 1
 
 describe('🔥 Smoke Tests — DigitalBank', () => {
 
