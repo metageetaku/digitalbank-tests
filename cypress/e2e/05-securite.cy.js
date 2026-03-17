@@ -1,4 +1,4 @@
-describe('🔒 Sécurité', () => {
+describe('Sécurité', () => {
 
   beforeEach(() => {
     cy.visit('/')
