@@ -1,0 +1,30 @@
+{
+  "users": {
+    "standard": {
+      "email": "test@digitalbank.fr",
+      "password": "Test1234!",
+      "name": "Utilisateur Test"
+    },
+    "with2FA": {
+      "email": "marie.martin@email.com",
+      "password": "SecurePass456!",
+      "code2FA": "123456"
+    },
+    "invalid": {
+      "email": "inconnu@email.com",
+      "password": "MauvaisPass999!"
+    }
+  },
+  "transfer": {
+    "validAmount": "100",
+    "overBalance": "999999",
+    "description": "Test virement automatisé"
+  },
+  "passwords": {
+    "newValid": "NewPass@2025!"
+  },
+  "beneficiary": {
+    "name": "Alice Durand",
+    "iban": "FR76 1234 5678 9012 3456 7890 123"
+  }
+}
