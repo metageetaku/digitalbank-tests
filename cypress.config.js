@@ -6,6 +6,10 @@ module.exports = defineConfig({
     // URL de base (surchargée par Docker via variable d'environnement)
     baseUrl: process.env.CYPRESS_BASE_URL || 'http://localhost:3000',
 
+    // Mobile par défaut
+    viewportWidth: 390,
+    viewportHeight: 844,
+
     // Dossier des tests
     specPattern: 'cypress/e2e/**/*.cy.js',
 
